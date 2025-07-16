@@ -1,0 +1,42 @@
+# --- Configuración General ---
+general:
+  input_metadata_path: "data/mnist_medical_metadata.csv"
+  input_images_dir: "data/mnist_medical_images/"
+  output_dir: "outputs/mnist_experiment"
+
+# --- Flujo del Pipeline ---
+pipeline:
+  - name: data_loader
+    params:
+      missing_values_strategy: "impute"   # Opciones: "drop", "impute"
+      impute_method: "median"             # Opciones: "mean", "median", "mode"
+
+  - name: descriptive_stats
+    params:
+      group_by_variable: "diagnosis"
+
+  - name: feature_extraction
+    params:
+      strategies:
+        - intensity
+        - texture
+      # - shape  # Habilitar si se cuenta con máscaras de segmentación
+
+  - name: projection
+    params:
+      methods:
+        - pca
+        - tsne
+        - isomap
+      color_by_variable: "diagnosis"
+
+  - name: quality_assurance
+    params:
+      method: "IsolationForest"  # Opciones: "IsolationForest", "LocalOutlierFactor"
+
+  - name: statistical_analysis
+    params:
+      group_by_variable: "diagnosis"
+      continuous_variables:
+        - "intensity_mean"
+        - "texture_contrast"
