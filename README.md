@@ -1,10 +1,4 @@
-Ran tool
-Ran tool
-Read file: medical_analysis_pipeline.py
-Read file: cli.py
-Here is a comprehensive README in English, including **usage examples**, **detailed function documentation** for each main module, and a **pipeline flow diagram**.
 
----
 
 # 🏥 Analisis-DB-iMedicas
 
@@ -275,15 +269,9 @@ Results are saved in the `outputs/` directory, organized by analysis type:
 
 ---
 
-## Contributing
-
-Contributions are welcome! Please open an issue or pull request for suggestions, improvements, or bug reports.
-
----
-
 ## License
 
-[MIT License](LICENSE) (or as appropriate)
+[MIT License](LICENSE) 
 
 ---
 
@@ -299,5 +287,16 @@ python cli.py run --config-file config_default.yaml
 python medical_analysis_pipeline.py
 ```
 
+## To-Do List
 
+    * Add options to select variables/files
+
+    * Meta-analysis: Plot and analyze variables
+
+    * Feature extraction: Add traditional and neural features
+
+    * Feature analysis: Display graphs and matrices
+
+    * Add references
+  
 ---
